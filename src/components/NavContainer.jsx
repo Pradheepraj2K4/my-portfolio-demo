@@ -4,7 +4,7 @@ import {useGSAP} from "@gsap/react"
 import gsap from 'gsap';
 
 //style for the nav links for medium and larger screen
-const linkStyle =  `hidden md:block m-3 md:m-2 md:px-4 lg:px-14 md:px-8 sm:px-10 py-1 border rounded-2xl ease-in transition duration-300 hover:bg-green-300  hover:text-gray-900 hover:cursor-pointer`;
+const linkStyle =  `hidden md:block m-3 md:m-2 md:px-4 lg:px-14 md:px-8 sm:px-10 py-1.5 border rounded-2xl ease-in transition duration-300 hover:bg-green-300  hover:text-gray-900 hover:cursor-pointer`;
 
 const NavContainer = () => {
 
@@ -58,10 +58,10 @@ const NavContainer = () => {
         </nav>
     </div>
     <div className={`bg-white-200  md:hidden flex justify-end relative p-8 ${menuClicked? "flex" : "hidden"}`}>
-        <ul id='menu' className='flex flex-col justify-between shadow-xl w-[50%] backdrop-blur bg-slate-700/20 backdrop:blur rounded-l-lg absolute z-50 top-0 right-0 items-center p-8'>
+        <ul id='menu' className='flex flex-col justify-between shadow-xl w-[50%] backdrop-blur bg-slate-700/20  rounded-l-lg absolute z-50 top-0 right-0 items-center p-8'>
                 {navLinks.map((link) => {
-                   return <div className='border-b w-full flex items-center'>
-                                <li key={link.label} onClick={()=>handleNavClicks(link)} className=" md:hidden text-white mx-auto my-5 sm:px-10 px-4 py-3  hover:scale-125 transition duration-300 ease-in hover:cursor-pointer">
+                   return <div key={link.label} className='border-b w-full flex items-center'>
+                                <li  onClick={()=>handleNavClicks(link)} className=" md:hidden text-white mx-auto my-5 sm:px-10 px-4 py-3  hover:scale-125 transition duration-300 ease-in hover:cursor-pointer">
                                     <a >{link.label}</a>
                                 </li>
                             </div>
