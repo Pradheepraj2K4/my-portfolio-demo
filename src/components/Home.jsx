@@ -5,7 +5,7 @@ const Home = () => {
   const homeContainer = useRef(); // reference to the whole home screen for pinning 
   return (
     <>
-    <div className='h-screen' ref={homeContainer}>
+    <div className='h-screen landing-page' ref={homeContainer}>
          <NavContainer ></NavContainer>
          <MainSection homeRef ={homeContainer}></MainSection> 
     </div>
