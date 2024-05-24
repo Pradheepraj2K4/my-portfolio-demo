@@ -14,7 +14,7 @@ const NavContainer = () => {
     //animate the vertical menu bar with nav links(smaller screens) 
     useGSAP(()=>{
         gsap.from('#menu',{
-            x:200,
+            x:300,
         })
     },[menuClicked]) 
 
@@ -37,13 +37,13 @@ const NavContainer = () => {
     <>
     <div className= "h-[10vh] mx-auto my-auto relative">
         <nav className = "flex h-full justify-between text-white items-center mx-[5%]">
-            <div className='flex'>
+            <div className='flex select-none'>
                 <div className='bg-green-300 w-6 rounded-[100%] mr-4'></div>
                 <h1>PRADHEEPRAJ S</h1>
             </div>
             <ul className='flex justify-between'>
                 {navLinks.map((link) => {                                                       //to higlight the nav menus when they are clicked
-                   return <li onClick={()=>handleNavClicks(link)} key={link.label} className={`${link.isClicked? "bg-green-300 text-gray-900" : ""} ${linkStyle}`}>
+                   return <li onClick={()=>handleNavClicks(link)} key={link.label} className={`${link.isClicked && "bg-green-300 text-gray-900"} ${linkStyle}`}>
                     <a >{link.label}</a>
                     </li>
                 })}
@@ -57,8 +57,8 @@ const NavContainer = () => {
             <svg onClick={()=> setMenuClicked(!menuClicked)} className = {`cursor-pointer md:hidden ${menuClicked? "block" : "hidden"}`}   xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="#e8eaed"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
         </nav>
     </div>
-    <div className={`bg-white-200  md:hidden flex justify-end relative p-8 ${menuClicked? "flex" : "hidden"}`}>
-        <ul id='menu' className='flex flex-col justify-between shadow-xl w-[50%] backdrop-blur bg-slate-700/20  rounded-l-lg absolute z-50 top-0 right-0 items-center p-8'>
+    <div className={`bg-white-200  md:hidden flex justify-end relative ${menuClicked? "flex" : "hidden"}`}>
+        <ul id='menu' className='border-white border flex flex-col justify-between shadow-xl select-none w-[50%] backdrop-blur bg-slate-700/20  rounded-l-lg absolute z-50 top-0 right-0 items-center p-8'>
                 {navLinks.map((link) => {
                    return <div key={link.label} className='border-b w-full flex items-center'>
                                 <li  onClick={()=>handleNavClicks(link)} className=" md:hidden text-white mx-auto my-5 sm:px-10 px-4 py-3  hover:scale-125 transition duration-300 ease-in hover:cursor-pointer">
